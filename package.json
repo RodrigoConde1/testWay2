@@ -1,0 +1,30 @@
+{
+  "scripts": {
+    "runFrontBack": "npx cypress run",
+    "runFronte2e": "npx cypress run --spec 'cypress/e2e/feature/way2automation.feature'",
+    "runBack2e": "npx cypress run --spec 'cypress/e2e/feature/jsonplaceholder.feature'",
+    "generateReport": "node cucumber-html-report.js"
+  },
+  "devDependencies": {
+    "cypress": "12.9.0",
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "cypress-mochawesome-reporter": "^3.0.0",
+    "cypress-multi-reporters": "^1.5.0",
+    "junit-report-merger": "^3.0.5",
+    "mocha": "^9.2.2",
+    "mocha-junit-reporter": "^2.0.2",
+    "multiple-cucumber-html-reporter": "^1.18.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/e2e/steps",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/report/cucumber-json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}

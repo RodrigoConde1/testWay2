@@ -1,0 +1,102 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "jsonplaceholder Test",
+    "line": 1,
+    "id": "jsonplaceholder-test",
+    "tags": [],
+    "uri": "jsonplaceholder.feature",
+    "elements": [
+      {
+        "id": "jsonplaceholder-test;make-a-call-to-/user-endpoint-and-search-for-a-user",
+        "keyword": "Scenario",
+        "line": 3,
+        "name": "Make a call to /user endpoint and search for a user",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "Client call user endpoint",
+            "result": {
+              "status": "passed",
+              "duration": 1745000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 5,
+            "name": "Validate that username exist",
+            "result": {
+              "status": "passed",
+              "duration": 63000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "jsonplaceholder-test;make-a-call--to-/post-endpoint",
+        "keyword": "Scenario",
+        "line": 13,
+        "name": "Make a call  to /post endpoint",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 8,
+            "name": "Client make a new post with userid \"55\", title \"foo\" and body \"bar\"",
+            "result": {
+              "status": "passed",
+              "duration": 749000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "Validate that response return userid \"55\", title \"foo\" and body \"bar\"",
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "jsonplaceholder-test;make-a-call-to-/photos-endpoint-and-check-response-time",
+        "keyword": "Scenario",
+        "line": 15,
+        "name": "Make a call to /photos endpoint and check response time",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 16,
+            "name": "Client make a post to endpoint photos",
+            "result": {
+              "status": "passed",
+              "duration": 327000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 17,
+            "name": "Validate that the call is successful",
+            "result": {
+              "status": "failed",
+              "error_message": "AssertionError: Timed out retrying after 4000ms: expected 239 to be below 100\n    + expected - actual\n\n    -239\n    +100\n\n    at Context.eval (cypress/e2e/steps/jsonplaceholder.js:55:32)"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

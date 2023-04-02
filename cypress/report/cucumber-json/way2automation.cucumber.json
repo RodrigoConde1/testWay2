@@ -1,0 +1,122 @@
+[
+  {
+    "keyword": "Feature",
+    "name": "way2automation Test",
+    "line": 1,
+    "id": "way2automation-test",
+    "tags": [],
+    "uri": "way2automation.feature",
+    "elements": [
+      {
+        "id": "way2automation-test;check-alert-input",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Check alert input",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "As user visit way2automation",
+            "result": {
+              "status": "passed",
+              "duration": 3583000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I navigate to Alerts an select input alert",
+            "result": {
+              "status": "passed",
+              "duration": 1199000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "Click on alert button and complete input",
+            "result": {
+              "status": "passed",
+              "duration": 797000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "The text result should have the correct name",
+            "result": {
+              "status": "passed",
+              "duration": 57000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "way2automation-test;check-datepicker-return-correct-iso-format",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Check datepicker return correct Iso Format",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "As user visit way2automation",
+            "result": {
+              "status": "passed",
+              "duration": 525000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "I navigate to Datepicker an select format date",
+            "result": {
+              "status": "passed",
+              "duration": 3726000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "Choose current date",
+            "result": {
+              "status": "passed",
+              "duration": 1589000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "Select ISO 8601 format",
+            "result": {
+              "status": "passed",
+              "duration": 337000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "Validate that the date has the correct format",
+            "result": {
+              "status": "passed",
+              "duration": 84000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
