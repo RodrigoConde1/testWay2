@@ -29,7 +29,7 @@ jobs:
 
     - name: List contents of dist directory
       run: ls -al cypress
-      working-directory: testWay2/cypress
+      working-directory: /home/runner/work/testWay2/testWay2/cypress
 
     - name: Upload Test Results
       if: always()
