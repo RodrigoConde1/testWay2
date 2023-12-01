@@ -26,9 +26,6 @@ jobs:
 
     - name: Run Cypress Tests
       run: npm run runFronte2e
-
-    - name: List root directory content
-      run: ls -al
       
     - name: Upload HTML Report
       uses: actions/upload-artifact@v2
