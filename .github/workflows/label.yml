@@ -25,9 +25,9 @@ jobs:
       run: npm install
 
     - name: Run Cypress Tests
-      run: npm run test
+      run: npm run runFronte2e
 
-    - name: Run Cypress Tests
+    - name: folders
       run: ls dist  
 
     - name: Upload Test Results
