@@ -22,7 +22,7 @@
             "name": "As user visit way2automation",
             "result": {
               "status": "passed",
-              "duration": 3583000000
+              "duration": 3990000000
             }
           },
           {
@@ -32,7 +32,7 @@
             "name": "I navigate to Alerts an select input alert",
             "result": {
               "status": "passed",
-              "duration": 1199000000
+              "duration": 1599000000
             }
           },
           {
@@ -42,7 +42,7 @@
             "name": "Click on alert button and complete input",
             "result": {
               "status": "passed",
-              "duration": 797000000
+              "duration": 391000000
             }
           },
           {
@@ -52,7 +52,7 @@
             "name": "The text result should have the correct name",
             "result": {
               "status": "passed",
-              "duration": 57000000
+              "duration": 14000000
             }
           }
         ]
@@ -72,7 +72,7 @@
             "name": "As user visit way2automation",
             "result": {
               "status": "passed",
-              "duration": 525000000
+              "duration": 344000000
             }
           },
           {
@@ -82,7 +82,7 @@
             "name": "I navigate to Datepicker an select format date",
             "result": {
               "status": "passed",
-              "duration": 3726000000
+              "duration": 5952000000
             }
           },
           {
@@ -92,7 +92,7 @@
             "name": "Choose current date",
             "result": {
               "status": "passed",
-              "duration": 1589000000
+              "duration": 273000000
             }
           },
           {
@@ -102,7 +102,7 @@
             "name": "Select ISO 8601 format",
             "result": {
               "status": "passed",
-              "duration": 337000000
+              "duration": 339000000
             }
           },
           {
@@ -112,7 +112,7 @@
             "name": "Validate that the date has the correct format",
             "result": {
               "status": "passed",
-              "duration": 84000000
+              "duration": 22000000
             }
           }
         ]
