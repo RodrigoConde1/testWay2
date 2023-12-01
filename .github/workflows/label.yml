@@ -1,0 +1,38 @@
+name: Manual Cypress Tests Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to run tests against'
+        required: true
+        type: string
+
+jobs:
+  cypress-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Puedes cambiar esto según la versión que uses
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Cypress Tests
+      run: npm run test
+
+    - name: Run Cypress Tests
+      run: ls dist  
+
+    - name: Upload Test Results
+      if: always()
+      uses: actions/upload-artifact@v2
+      with:
+        name: cypress-results
+        path: cypress/results/ # Asegúrate de que esta ruta sea donde Cypress almacena los resultados
