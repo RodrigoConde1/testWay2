@@ -27,13 +27,11 @@ jobs:
     - name: Run Cypress Tests
       run: npm run runFronte2e
 
-    - name: List contents of dist directory
-      run: ls -al cypress
-      working-directory: /home/runner/work/testWay2/testWay2/cypress
-
-    - name: Upload Test Results
-      if: always()
+    - name: List root directory content
+      run: ls -al
+      
+    - name: Upload HTML Report
       uses: actions/upload-artifact@v2
       with:
-        name: cypress-results
-        path: cypress/results/ # Asegúrate de que esta ruta sea donde Cypress almacena los resultados
+        name: cypress-html-report
+        path: cypress/reports/html/
