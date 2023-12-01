@@ -28,8 +28,8 @@ jobs:
       run: npm run runFronte2e
 
     - name: List contents of dist directory
-      run: ls -al dist
-      working-directory: testWay2/testWay2/cypress
+      run: ls -al cypress
+      working-directory: testWay2/cypress
 
     - name: Upload Test Results
       if: always()
