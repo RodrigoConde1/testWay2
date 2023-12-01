@@ -27,8 +27,9 @@ jobs:
     - name: Run Cypress Tests
       run: npm run runFronte2e
 
-    - name: folders
-      run: ls dist  
+    - name: List contents of dist directory
+      run: ls -al dist
+      working-directory: testWay2/testWay2/cypress
 
     - name: Upload Test Results
       if: always()
