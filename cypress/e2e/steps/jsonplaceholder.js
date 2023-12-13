@@ -9,7 +9,7 @@ Given('Client call user endpoint', () => {
 
 Then('Validate that username exist', () => {
   cy.get('@response').should((resp) => {
-    expect(resp.status).to.be.eq(200)
+    expect(resp.status).to.be.eq(400)
     const username = utilsAction.getusername(resp.body, "Samantha")
     expect(username).to.be.equal("Samantha")
   })
