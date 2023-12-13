@@ -18,7 +18,7 @@ When('Click on alert button and complete input', () => {
     cy.visit($wins.location.href)
     cy.window().then(($win) => {
       cy.stub($win, 'prompt').returns('Rodrigo Conde')
-      cy.contains("Click the button to demonstrate the Input box.").click()
+      cy.contains("click the buttton to demonstrate the Input box.").click()
     })
   })
 })
