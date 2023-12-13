@@ -28,6 +28,7 @@ jobs:
       run: npm run runFronte2e
       
     - name: Upload HTML Report
+      if: always()      
       uses: actions/upload-artifact@v2
       with:
         name: cypress-html-report
