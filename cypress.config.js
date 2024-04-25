@@ -23,6 +23,7 @@ module.exports = defineConfig({
       cypressSplit(on, config)
       on("file:preprocessor", cucumber());
       require('cypress-mochawesome-reporter/plugin')(on);
+      return config
     },
   }
 });
