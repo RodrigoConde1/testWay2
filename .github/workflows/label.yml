@@ -43,21 +43,6 @@ jobs:
         
       - name: Install dependencies 📦
         run: npm install 
-        
-      - name: Print GitHub variables 🖨
-        run: npx @bahmutov/print-env GITHUB
-
-      - name: Print GitHub strategy context 🖨
-        run: echo '${{ toJSON(strategy) }}'
-        
-      - name: Print GitHub strategy job-total 🖨
-        run: echo ' ${{ strategy.job-total }}'
-
-      - name: Print GitHub strategy job index 🖨
-        run: echo '  ${{ strategy.job-index }}'
-
-      - name: Print GitHub strategy job matrix 🖨
-        run: echo '   ${{ fromJSON(needs.prepare.outputs.matrix) }}'
 
       - name: Run split Cypress tests 🧪
         # https://github.com/cypress-io/github-action
