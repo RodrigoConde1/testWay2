@@ -1,44 +1,56 @@
-name: Manual Cypress Tests Workflow
-
-strategy:
-  fail-fast: false
-  matrix:
-    containers: [1, 2]
-
-env:
-  SPLIT: ${{ strategy.job-total }}
-  SPLIT_INDEX: ${{ strategy.job-index }}
-
-on:
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to run tests against'
-        required: true
-        type: string
-
+name: ci
+on: push
 jobs:
-  cypress-tests:
-    runs-on: ubuntu-latest
-
+  # example running all tests on a single machine
+  test:
+    runs-on: ubuntu-22.04
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14' # Puedes cambiar esto según la versión que uses
+      - name: Run Cypress tests 🧪
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v5
 
-    - name: Install Dependencies
-      run: npm install
+  # example splitting all tests across GitHub machines
+  prepare:
+    runs-on: ubuntu-22.04
+    # explicitly set the output of this job
+    # so that other jobs can use it
+    outputs:
+      matrix: ${{ steps.prepare.outputs.matrix }}
+    steps:
+      # generate the list using a bash script
+      - name: Create matrix ⊹
+        id: prepare
+        # for reusable workflow, must use the full action reference
+        uses: bahmutov/gh-build-matrix@main
+        with:
+          n: 3 # number of containers to output
 
-    - name: Run Cypress Tests
-      run: npm run runFronte2e
-      
-    - name: Upload HTML Report
-      if: always()      
-      uses: actions/upload-artifact@v2
-      with:
-        name: cypress-html-report
-        path: cypress/reports/html/
+      - name: Print result 🖨
+        run: echo '${{ steps.prepare.outputs.matrix }}'
+
+  test-split:
+    needs: prepare
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
+
+      - name: Print GitHub variables 🖨
+        run: npx @bahmutov/print-env GITHUB
+
+      - name: Print GitHub strategy context 🖨
+        run: echo '${{ toJSON(strategy) }}'
+
+      - name: Run split Cypress tests 🧪
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v5
+        env:
+          SPLIT: ${{ strategy.job-total }}
+          SPLIT_INDEX: ${{ strategy.job-index }}
+          DEBUG: cypress-split
