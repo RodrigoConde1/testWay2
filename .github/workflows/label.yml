@@ -59,6 +59,12 @@ jobs:
       - name: Print GitHub strategy job index 🖨
         run: echo '  ${{ strategy.job-index }}'
 
+      - name: Print GitHub strategy job matrix 🖨
+        run: echo '   ${{ fromJSON(needs.prepare.outputs.matrix) }}'
+
+      - name: Print GitHub strategy job matrix 🖨
+        run: echo '   ${{cypress-split}}'
+
       - name: Run split Cypress tests 🧪
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v5
