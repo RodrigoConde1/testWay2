@@ -7,7 +7,10 @@ jobs:
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v4
-
+        
+      - name: Install dependencies 📦
+        run: npm install 
+        
       - name: Run Cypress tests 🧪
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v5
@@ -41,6 +44,9 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v4
 
+      - name: Install dependencies 📦
+        run: npm install 
+        
       - name: Print GitHub variables 🖨
         run: npx @bahmutov/print-env GITHUB
 
