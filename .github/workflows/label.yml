@@ -1,5 +1,14 @@
 name: Manual Cypress Tests Workflow
 
+strategy:
+  fail-fast: false
+  matrix:
+    containers: [1, 2]
+
+env:
+  SPLIT: ${{ strategy.job-total }}
+  SPLIT_INDEX: ${{ strategy.job-index }}
+
 on:
   workflow_dispatch:
     inputs:
