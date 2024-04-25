@@ -38,6 +38,9 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
+        
       - name: Install dependencies 📦
         run: npm install 
         
