@@ -10,10 +10,7 @@ jobs:
         
       - name: Install dependencies 📦
         run: npm install 
-        
-      - name: Run Cypress tests 🧪
-        # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v5
+  
 
   # example splitting all tests across GitHub machines
   prepare:
@@ -41,9 +38,6 @@ jobs:
       fail-fast: false
       matrix: ${{ fromJSON(needs.prepare.outputs.matrix) }}
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v4
-
       - name: Install dependencies 📦
         run: npm install 
         
@@ -61,9 +55,6 @@ jobs:
 
       - name: Print GitHub strategy job matrix 🖨
         run: echo '   ${{ fromJSON(needs.prepare.outputs.matrix) }}'
-
-      - name: Print GitHub strategy job matrix 🖨
-        run: echo '   ${{cypress-split}}'
 
       - name: Run split Cypress tests 🧪
         # https://github.com/cypress-io/github-action
