@@ -1,7 +1,7 @@
 const { defineConfig } = require("cypress");
 const cucumber = require("cypress-cucumber-preprocessor").default;
 require("dotenv").config();
-import cypressSplit from 'cypress-split'
+const cypressSplit = require('cypress-split')
 
 module.exports = defineConfig({
   reporter: 'cypress-mochawesome-reporter',
@@ -21,7 +21,7 @@ module.exports = defineConfig({
     baseUrl: "https://way2automation.com/way2auto_jquery/",
     specPattern: "cypress/e2e/feature/*.feature",
     setupNodeEvents(on, config) {
-       cypressSplit(on, config);
+      cypressSplit(on, config)
       on("file:preprocessor", cucumber());
       require('cypress-mochawesome-reporter/plugin')(on);
     },
