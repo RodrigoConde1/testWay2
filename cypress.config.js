@@ -19,7 +19,6 @@ module.exports = defineConfig({
     viewportWidth: 1440,
     viewportHeight: 900,
     baseUrl: "https://way2automation.com/way2auto_jquery/",
-    specPattern: "cypress/e2e/feature/*.feature",
     setupNodeEvents(on, config) {
       cypressSplit(on, config)
       on("file:preprocessor", cucumber());
