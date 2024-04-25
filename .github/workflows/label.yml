@@ -9,21 +9,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Install dependencies 📦
-        run: npm install 
-
-  test2:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v4
-        
-      - name: Install dependencies 📦
-        run: npm install 
-
-      - uses: bahmutov/cypress-workflows/.github/workflows/split.yml@v2
-        with:
-          nE2E: 3
-  
+        run: npm install   
 
   # example splitting all tests across GitHub machines
   prepare:
