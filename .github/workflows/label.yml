@@ -56,5 +56,5 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-html-report ${{ strategy.job-total }}
+          name: cypress-html-report ${{ strategy.job-index }}
           path: ./dist/cypress/report/
