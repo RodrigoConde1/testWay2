@@ -34,7 +34,8 @@ jobs:
       - name: Print result 🖨
         run: echo '${{ steps.prepare.outputs.matrix }}'
 
-  test-split:
+  run-cypress-test-stage:
+    name: "Run cypress tests - STAGE"
     needs: prepare
     runs-on: ubuntu-22.04
     strategy:
