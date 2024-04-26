@@ -11,6 +11,9 @@ jobs:
       - name: Install dependencies 📦
         run: npm install   
 
+      - name: Run split Cypress tests 🧪
+        uses: cypress-io/github-action@v5
+
   # example splitting all tests across GitHub machines
   prepare:
     runs-on: ubuntu-22.04
