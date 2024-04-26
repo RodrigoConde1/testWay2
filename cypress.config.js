@@ -15,6 +15,7 @@ module.exports = defineConfig({
     saveAllAttempts: false,  
   },
   e2e: {
+    supportFile: './rodri-e2e/test-file/suppor/e2e.js',
     screenshotOnRunFailure :false,
     chromeWebSecurity: false,
     videoCompression:false,
