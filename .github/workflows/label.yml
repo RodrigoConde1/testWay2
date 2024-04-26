@@ -11,6 +11,9 @@ jobs:
       - name: Install dependencies 📦
         run: npm install   
 
+      - name: Run split Cypress tests 🧪
+        uses: cypress-io/github-action@v5
+
   # example splitting all tests across GitHub machines
   prepare:
     runs-on: ubuntu-22.04
@@ -31,7 +34,8 @@ jobs:
       - name: Print result 🖨
         run: echo '${{ steps.prepare.outputs.matrix }}'
 
-  test-split:
+  run-cypress-test-stage:
+    name: "Run cypress tests - STAGE"
     needs: prepare
     runs-on: ubuntu-22.04
     strategy:
@@ -51,3 +55,10 @@ jobs:
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
           DEBUG: cypress-split
+
+      - name: Upload HTML Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-html-report ${{ strategy.job-index }}
+          path: ./dist/cypress/report/
