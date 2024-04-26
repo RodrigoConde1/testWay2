@@ -9,9 +9,10 @@ module.exports = defineConfig({
     reportDir: './dist/cypress/report',
     charts: true,
     reportPageTitle: 'custom-title',
+    reportFilename: '[name].html',
     embeddedScreenshots: true,
     inlineAssets: true,
-    saveAllAttempts: false,
+    saveAllAttempts: false,  
   },
   e2e: {
     screenshotOnRunFailure :false,
