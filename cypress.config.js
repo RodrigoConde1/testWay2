@@ -16,6 +16,7 @@ module.exports = defineConfig({
   },
   e2e: {
     supportFile: './rodri-e2e/test-file/support/e2e.js',
+    specPattern: './rodri-e2e/test-file/e2e/**/*.cy.ts',
     screenshotOnRunFailure :false,
     chromeWebSecurity: false,
     videoCompression:false,
