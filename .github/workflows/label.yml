@@ -33,7 +33,7 @@ jobs:
         uses: cypress-io/github-action@v6
         # using operating system process environment variables
         env:
-          SPEC: "./rodri-e2e/test-file/e2e/**/*.cy.ts"
+          SPEC: "./rodri-e2e/test-file/e2e/*.cy.ts"
           SPLIT_RANDOM_SEED: 42
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
