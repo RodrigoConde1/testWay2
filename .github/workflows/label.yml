@@ -1,19 +1,6 @@
 name: ci
 on: push
 jobs:
-  # example running all tests on a single machine
-  test:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@v4
-        
-      - name: Install dependencies 📦
-        run: npm install   
-
-      - name: Run split Cypress tests 🧪
-        uses: cypress-io/github-action@v5
-
   # example splitting all tests across GitHub machines
   test-random-order:
     runs-on: ubuntu-22.04
