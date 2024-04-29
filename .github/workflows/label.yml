@@ -25,6 +25,9 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v4
 
+      - name: Install dependencies 📦
+        run: npm install   
+
       - name: Run random order Cypress E2E tests 🧪
         # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
