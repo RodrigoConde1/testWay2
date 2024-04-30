@@ -49,5 +49,5 @@ jobs:
         run: cd test && npm install
       
       - name: Run tests
-        run: cd tests && npm test
+        run: cd test && npm test
       
