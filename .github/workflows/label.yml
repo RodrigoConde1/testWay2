@@ -40,6 +40,7 @@ jobs:
         with:
           repository: RodrigoConde1/UiExam
           path: ./cypress
+          ref: main
           # Si necesitas una rama específica, puedes descomentar la siguiente línea y reemplazar <branch_name> con el nombre de tu rama
           # ref: <branch_name>
       
