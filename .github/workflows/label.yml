@@ -31,3 +31,22 @@ jobs:
         with:
           name: cypress-html-report ${{ strategy.job-index }}
           path: ./dist/cypress/report/
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout test repo
+        uses: actions/checkout@v2
+        with:
+          repository: RodrigoConde1/UiExam
+          path: ./cypress
+          # Si necesitas una rama específica, puedes descomentar la siguiente línea y reemplazar <branch_name> con el nombre de tu rama
+          # ref: <branch_name>
+      
+      - name: Install dependencies 📦
+        run: npm install   
+      
+      - name: Run 🧪
+        # https://github.com/cypress-io/github-action
+        uses: cypress-io/github-action@v6
+      
