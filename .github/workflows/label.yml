@@ -39,6 +39,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: RodrigoConde1/UiExam
+          token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
           path: ./cypress
           ref: main
           # Si necesitas una rama específica, puedes descomentar la siguiente línea y reemplazar <branch_name> con el nombre de tu rama
