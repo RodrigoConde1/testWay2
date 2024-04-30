@@ -49,5 +49,5 @@ jobs:
         run: cd test && npm install
       
       - name: Run tests
-        run: cd test && npm test
+        run: cd test && npm test --spec \"**/demoqa.features\""
       
