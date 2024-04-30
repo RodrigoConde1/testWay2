@@ -40,13 +40,13 @@ jobs:
         with:
           repository: RodrigoConde1/UiExam
           token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
-          path: ./UiExam/cypress
+          path: test
           ref: main
           # Si necesitas una rama específica, puedes descomentar la siguiente línea y reemplazar <branch_name> con el nombre de tu rama
           # ref: <branch_name>
       
       - name: Install dependencies 📦
-        run: cd UiExam && npm install
+        run: cd test && npm install
       
       - name: Run 🧪
         # https://github.com/cypress-io/github-action
