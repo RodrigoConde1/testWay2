@@ -48,7 +48,6 @@ jobs:
       - name: Install dependencies 📦
         run: cd test && npm install
       
-      - name: Run 🧪
-        # https://github.com/cypress-io/github-action
-        uses: cypress-io/github-action@v6
+      - name: Run tests
+        run: cd tests && npm test
       
