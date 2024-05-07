@@ -9,11 +9,12 @@ jobs:
       matrix:
         containers: [1, 2]
     steps:
-      - name: Checkout 🛎
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Install dependencies 📦
-        run: npm install   
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.18.0
 
       - name: Run random order Cypress E2E tests 🧪
         # https://github.com/cypress-io/github-action
@@ -31,23 +32,4 @@ jobs:
         with:
           name: cypress-html-report ${{ strategy.job-index }}
           path: ./dist/cypress/report/
-
-  tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout test repo
-        uses: actions/checkout@v2
-        with:
-          repository: RodrigoConde1/UiExam
-          token: ${{secrets.PERSONAL_ACCESS_TOKEN}}
-          path: test
-          ref: main
-          # Si necesitas una rama específica, puedes descomentar la siguiente línea y reemplazar <branch_name> con el nombre de tu rama
-          # ref: <branch_name>
-      
-      - name: Install dependencies 📦
-        run: cd test && npm install
-      
-      - name: Run tests
-        run: cd test && npm test --spec **/demoqa.feature
       
