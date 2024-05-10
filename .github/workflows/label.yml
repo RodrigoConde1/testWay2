@@ -60,15 +60,10 @@ jobs:
             DEBUG: 'cypress-split'
             
       - uses: actions/upload-artifact@v4
-        if: ${{ inputs.store-artifacts && always() }}
+        if: always()
         with:
           name: cypress-split-results-e2e-${{ strategy.job-index }}
-          path: |
-            cypress/screenshots
-            cypress/videos
-            cypress/results
-            ${{ inputs.split-file }}
-          if-no-files-found: ignore
+          path: ./dist/cypress/report
             
   merge-reports:
     if: ${{ inputs.store-artifacts && inputs.marge && always() }}
