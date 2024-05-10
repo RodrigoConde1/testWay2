@@ -29,7 +29,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2, 3, 4, 5]
+        containers: [1, 2, 3]
     steps:
       - uses: actions/checkout@v4
 
@@ -58,9 +58,9 @@ jobs:
             SPLIT_FILE: '${{ inputs.split-file }}'
             SKIP_SPEC: '${{ inputs.skip-spec }}'
             DEBUG: 'cypress-split'
-            
-      - uses: actions/upload-artifact@v4
+      - name: Upload HTML Report
         if: always()
+      - uses: actions/upload-artifact@v4
         with:
           name: cypress-split-results-e2e-${{ strategy.job-index }}
           path: ./dist/cypress/report
