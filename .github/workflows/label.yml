@@ -10,13 +10,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18.18.0
-      - name: Install dependencies
-        run: |
-          npm install
-      - uses: actions/upload-artifact@v2
+      - uses: actions/cache@v2
+        id: cache-node-modules
         with:
-          name: node-modules
-          path: node_modules/
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm install
   # example splitting all tests across GitHub machines
   test-random-order:
     needs: prepare
@@ -33,9 +37,17 @@ jobs:
         with:
           node-version: 18.18.0
 
-      - uses: actions/download-artifact@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          name: node-modules
+          node-version: ${{ matrix.node-version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
       - name: Run random order Cypress E2E tests 🧪
         # https://github.com/cypress-io/github-action
