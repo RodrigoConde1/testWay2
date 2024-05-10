@@ -8,7 +8,7 @@ module.exports = defineConfig({
   reporterOptions: {
     useInlineDiffs: true,
     embeddedScreenshots: true,
-    reportDir: './dist/cypress/report',
+    reportDir: 'cypress/results',
     reportFilename: '[name].html',
     overwrite: true,
     html: true,
