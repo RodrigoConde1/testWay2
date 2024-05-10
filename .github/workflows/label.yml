@@ -6,9 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '18.18.0'
       - uses: actions/cache@v4
         id: cache-node-modules
         with:
@@ -16,6 +13,9 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.18.0'      
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm install
@@ -29,15 +29,18 @@ jobs:
         containers: [1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '18.18.0'
+
       - uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '18.18.0'  
+          
       - name: Run random order Cypress E2E tests 🧪
         uses: cypress-io/github-action@v6
         with:
