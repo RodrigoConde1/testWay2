@@ -19,6 +19,7 @@ jobs:
           path: node_modules/
   # example splitting all tests across GitHub machines
   test-random-order:
+    needs: prepare
     runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
