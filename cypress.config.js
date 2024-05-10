@@ -4,16 +4,16 @@ require("dotenv").config();
 const cypressSplit = require('cypress-split')
 
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter',
+  reporter: 'mochawesome',
   reporterOptions: {
-    reportDir: './dist/cypress/report',
-    charts: true,
-    reportPageTitle: 'custom-title',
-    reportFilename: '[name].html',
+    useInlineDiffs: true,
     embeddedScreenshots: true,
-    inlineAssets: true,
-    saveAllAttempts: false,  
-  },
+    reportDir: './dist/cypress/report',
+    reportFilename: '[name].html',
+    overwrite: true,
+    html: true,
+    json: true,
+  }
   e2e: {
     supportFile: './rodri-e2e/test-file/support/e2e.js',
     specPattern: './rodri-e2e/test-file/e2e/**/*.cy.ts',
