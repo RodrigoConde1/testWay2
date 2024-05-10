@@ -52,6 +52,7 @@ jobs:
         with:
             install: false
         env:
+            SPEC: "./rodri-e2e/test-file/e2e/*.cy.js"
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
             DEBUG: 'cypress-split'
