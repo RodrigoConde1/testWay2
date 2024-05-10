@@ -1,15 +1,15 @@
 name: ci
+
 on: push
+
 jobs:
   prepare: 
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 1
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18.18.0
+          node-version: '18.18.0'
       - uses: actions/cache@v4
         id: cache-node-modules
         with:
@@ -17,11 +17,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm install
-  # example splitting all tests across GitHub machines
+
   test-random-order:
     needs: prepare
     runs-on: ubuntu-22.04
@@ -30,39 +29,27 @@ jobs:
       matrix:
         containers: [1, 2, 3, 4, 5]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18.18.0
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
+          node-version: '18.18.0'
       - uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-
       - name: Run random order Cypress E2E tests 🧪
-        # https://github.com/cypress-io/github-action
         uses: cypress-io/github-action@v6
-        # using operating system process environment variables
-        env:
-          SPEC: "./rodri-e2e/test-file/e2e/*.cy.js"
-          SPLIT: ${{ strategy.job-total }}
-          SPLIT_INDEX: ${{ strategy.job-index }}
-          DEBUG: 'cypress-split'
-
+        with:
+          spec: "./rodri-e2e/test-file/e2e/*.cy.js"
+          env:
+            SPLIT: ${{ strategy.job-total }}
+            SPLIT_INDEX: ${{ strategy.job-index }}
+            DEBUG: 'cypress-split'
       - name: Upload HTML Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-html-report ${{ strategy.job-index }}
-          path: ./dist/cypress/report/
-      
+          name: cypress-html-report ${{ matrix.containers }}
+          path: ./dist/cypress/report
