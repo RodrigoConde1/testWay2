@@ -14,6 +14,7 @@ module.exports = defineConfig({
     html: true,
     json: true,
   }
+})
   e2e: {
     supportFile: './rodri-e2e/test-file/support/e2e.js',
     specPattern: './rodri-e2e/test-file/e2e/**/*.cy.ts',
