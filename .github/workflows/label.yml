@@ -60,8 +60,8 @@ jobs:
             DEBUG: 'cypress-split'
             
       - name: Upload HTML Report
+      - uses: actions/upload-artifact@v4
         if: ${{ inputs.store-artifacts && always() }}
-        uses: actions/upload-artifact@v4
         with:
           name: cypress-split-results-e2e-${{ strategy.job-index }}
           path: |
@@ -70,6 +70,7 @@ jobs:
             cypress/results
             coverage
             ${{ inputs.split-file }}
+          if-no-files-found: ignore
             
   merge-reports:
     if: ${{ inputs.store-artifacts && inputs.marge && always() }}
