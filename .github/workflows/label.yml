@@ -40,6 +40,8 @@ jobs:
             ${{ runner.os }}-node-
       - name: Run random order Cypress E2E tests 🧪
         uses: cypress-io/github-action@v6
+        with:
+            install: false
         env:
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
