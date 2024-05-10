@@ -60,11 +60,16 @@ jobs:
             DEBUG: 'cypress-split'
             
       - name: Upload HTML Report
-        if: always()
+        if: ${{ inputs.store-artifacts && always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: cypress-html-report ${{ matrix.containers }}
-          path: ./dist/cypress/report
+          name: cypress-split-results-e2e-${{ strategy.job-index }}
+          path: |
+            cypress/screenshots
+            cypress/videos
+            cypress/results
+            coverage
+            ${{ inputs.split-file }}
             
   merge-reports:
     if: ${{ inputs.store-artifacts && inputs.marge && always() }}
@@ -84,10 +89,15 @@ jobs:
         run: ls -R split-results
       - name: Prepare folder
         run: |
-          mkdir ./dist/cypress/report
+          mkdir mochawesome
+          mkdir -p mochawesome/screenshots
+          mkdir -p mochawesome/videos
+          mkdir -p mochawesome/results
       - name: Copy all assets and JSON reports
         run: |
-          cp -r ./dist/cypress/report
+          cp -r split-results/cypress-split-results-*/cypress/screenshots/* mochawesome/screenshots || true
+          cp -r split-results/cypress-split-results-*/cypress/videos/* mochawesome/videos || true
+          cp -r split-results/cypress-split-results-*/cypress/results/* mochawesome/results || true
       - name: Show copied files
         run: ls -lR mochawesome
 
