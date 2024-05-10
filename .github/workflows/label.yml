@@ -1,6 +1,22 @@
 name: ci
 on: push
 jobs:
+  prepare: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 1
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.18.0
+      - name: Install dependencies
+        run: |
+          npm install
+      - uses: actions/upload-artifact@v2
+        with:
+          name: node-modules
+          path: node_modules/
   # example splitting all tests across GitHub machines
   test-random-order:
     runs-on: ubuntu-22.04
@@ -16,8 +32,9 @@ jobs:
         with:
           node-version: 18.18.0
 
-      - name: install dependencies
-        run: npm install
+      - uses: actions/download-artifact@v2
+        with:
+          name: node-modules
 
       - name: Run random order Cypress E2E tests 🧪
         # https://github.com/cypress-io/github-action
