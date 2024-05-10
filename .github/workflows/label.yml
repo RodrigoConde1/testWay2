@@ -68,7 +68,7 @@ jobs:
             
   merge-reports:
     if: ${{ inputs.store-artifacts && inputs.marge && always() }}
-    needs: [test-random-order]
+    needs: test-random-order
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout 🛎
@@ -84,15 +84,10 @@ jobs:
         run: ls -R split-results
       - name: Prepare folder
         run: |
-          mkdir mochawesome
-          mkdir -p mochawesome/screenshots
-          mkdir -p mochawesome/videos
-          mkdir -p mochawesome/results
+          mkdir ./dist/cypress/report
       - name: Copy all assets and JSON reports
         run: |
-          cp -r split-results/cypress-split-results-*/cypress/screenshots/* mochawesome/screenshots || true
-          cp -r split-results/cypress-split-results-*/cypress/videos/* mochawesome/videos || true
-          cp -r split-results/cypress-split-results-*/cypress/results/* mochawesome/results || true
+          cp -r ./dist/cypress/report
       - name: Show copied files
         run: ls -lR mochawesome
 
