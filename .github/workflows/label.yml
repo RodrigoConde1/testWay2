@@ -9,10 +9,13 @@ jobs:
       - uses: actions/cache@v4
         id: cache-node-modules
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: |
+            node_modules
+            ~/.cache/Cypress
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-cypress
           restore-keys: |
             ${{ runner.os }}-node-
+            ${{ runner.os }}-node-cypress
       - uses: actions/setup-node@v4
         with:
           node-version: '18.18.0'      
@@ -32,10 +35,13 @@ jobs:
 
       - uses: actions/cache@v4
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: |
+            node_modules
+            ~/.cache/Cypress
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}-cypress
           restore-keys: |
             ${{ runner.os }}-node-
+            ${{ runner.os }}-node-cypress
 
       - uses: actions/setup-node@v4
         with:
