@@ -58,11 +58,12 @@ jobs:
             SPLIT_FILE: '${{ inputs.split-file }}'
             SKIP_SPEC: '${{ inputs.skip-spec }}'
             DEBUG: 'cypress-split'
+            
       - name: Upload HTML Report
         if: always()
-      - uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
-          name: cypress-split-results-e2e-${{ strategy.job-index }}
+          name: cypress-html-report ${{ matrix.containers }}
           path: ./dist/cypress/report
             
   merge-reports:
