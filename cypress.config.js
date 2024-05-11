@@ -16,7 +16,7 @@ module.exports = defineConfig({
   },
   e2e: {
     supportFile: './rodri-e2e/test-file/support/e2e.js',
-    specPattern: './rodri-e2e/test-file/e2e/**/*.cy.ts',
+    specPattern: './rodri-e2e/test-file/e2e/**/*.cy.js',
     screenshotOnRunFailure :false,
     chromeWebSecurity: false,
     videoCompression:false,
@@ -25,6 +25,7 @@ module.exports = defineConfig({
     baseUrl: "https://way2automation.com/way2auto_jquery/",
     setupNodeEvents(on, config) {
       cypressSplit(on, config)
+      require('@cypress/grep/src/plugin')(config);
       on("file:preprocessor", cucumber());
       require('cypress-mochawesome-reporter/plugin')(on);
       return config

@@ -2,6 +2,6 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 
-it('runs test E1',  { tags: ['config', 'some-other-tag'] }, () => {
+it('runs test B1',  { tags: ['smoke'] }, () => {
   cy.wait(10_000)
 })
