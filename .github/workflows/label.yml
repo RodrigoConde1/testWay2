@@ -52,7 +52,7 @@ jobs:
         with:
             install: false
         env:
-            SPEC:  "!rodri-e2e/test-file/e2e/testFolder/*.cy.js"
+            excludeSpecPattern: "rodri-e2e/test-file/e2e/testFolder"    
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
             SPLIT_FILE: '${{ inputs.split-file }}'
