@@ -51,7 +51,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
             install: false
-            config: '{excludeSpecPattern: "rodri-e2e/test-file/e2e/testFolder/*.cy.js"}'
+            config: '{"excludeSpecPattern": "rodri-e2e/test-file/e2e/testFolder/*.cy.js"}'
 
         env:
             SPLIT: ${{ strategy.job-total }}
