@@ -57,4 +57,4 @@ jobs:
             SPLIT_FILE: '${{ inputs.split-file }}'
             SKIP_SPEC: '${{ inputs.skip-spec }}'
             DEBUG: 'cypress-split'
-            grepTags: '@config'
+            grepTags: 'config'
