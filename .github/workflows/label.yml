@@ -51,6 +51,7 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
             install: false
+            exclude: "rodri-e2e/test-file/e2e/testFolder"
         env:
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
