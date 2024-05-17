@@ -5,8 +5,7 @@
 const cypress = require("cypress")
 
 it('runs test E1',  { tags: ['config', 'some-other-tag'] }, () => {
-  const splitIndex = Cypress.env('SPLIT_INDEX');
-  console.log(splitIndex)
-
+  const splitIndex = Cypress.env('splitIndex');
+  cy.log(`SPLIT_INDEX: ${splitIndex}`);
     cy.wait(100)
 })
