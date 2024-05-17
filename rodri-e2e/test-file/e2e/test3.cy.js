@@ -3,5 +3,6 @@
 /// <reference types="cypress" />
 
 it('runs test C1', { tags: ['config', 'some-other-tag'] }, () => {
+  cy.log( strategy.job-index)
   cy.wait(10_000)
 })

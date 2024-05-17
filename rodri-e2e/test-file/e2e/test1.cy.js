@@ -3,5 +3,11 @@
 /// <reference types="cypress" />
 
 it('runs test E1',  { tags: ['config', 'some-other-tag'] }, () => {
-  cy.wait(10_000)
+  if( strategy.job-index === 1){
+    cy.wait(100)
+  } else{
+    cy.wait(10_000)
+  }
+
+
 })
