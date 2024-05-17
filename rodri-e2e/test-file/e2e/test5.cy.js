@@ -3,5 +3,7 @@
 /// <reference types="cypress" />
 
 it('runs test B1',  { tags: ['config', 'some-other-tag'] }, () => {
+  const splitIndex = Cypress.env('splitIndex');
+  expect(splitIndex).to.be.eq(2)
   cy.wait(10_000)
 })

@@ -3,7 +3,8 @@
 /// <reference types="cypress" />
 
 it('runs test B1',  { tags: ['config', 'some-other-tag'] }, () => {
-  console.log( strategy.job-index)
+  const splitIndex = Cypress.env('splitIndex');
+  expect(splitIndex).to.be.eq(0)
   cy.wait(10_000)
 
 })

@@ -4,14 +4,7 @@ require("dotenv").config();
 const cypressSplit = require('cypress-split')
 
 module.exports = defineConfig({
-  env: {
-    splitIndex: process.env.SPLIT_INDEX,
-    split: process.env.SPLIT,
-    splitFile: process.env.SPLIT_FILE,
-    skipSpec: process.env.SKIP_SPEC,
-    debug: process.env.DEBUG,
-    grepTags: process.env.grepTags
-  },
+
   e2e: {
     supportFile: './rodri-e2e/test-file/support/e2e.js',
     specPattern: './rodri-e2e/test-file/e2e/**/*.cy.js',
