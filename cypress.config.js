@@ -5,12 +5,7 @@ const cypressSplit = require('cypress-split')
 
 module.exports = defineConfig({
   env: {
-    split: process.env.SPLIT,
     splitIndex: process.env.SPLIT_INDEX,
-    splitFile: process.env.SPLIT_FILE,
-    skipSpec: process.env.SKIP_SPEC,
-    debug: process.env.DEBUG,
-    grepTags: process.env.GREP_TAGS
   },
   e2e: {
     supportFile: './rodri-e2e/test-file/support/e2e.js',
