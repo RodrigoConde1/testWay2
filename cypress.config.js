@@ -10,6 +10,7 @@ module.exports = defineConfig({
     screenshotOnRunFailure :false,
     chromeWebSecurity: false,
     videoCompression:false,
+    splitIndex: process.env.SPLIT_INDEX,
     viewportWidth: 1440,
     viewportHeight: 900,
     excludeSpecPattern: "rodri-e2e/test-file/e2e/testFolder/*.cy.js",
