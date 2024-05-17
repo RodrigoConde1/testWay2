@@ -12,6 +12,7 @@ module.exports = defineConfig({
     videoCompression:false,
     viewportWidth: 1440,
     viewportHeight: 900,
+    splitIndex: process.env.SPLIT_INDEX,
     excludeSpecPattern: "rodri-e2e/test-file/e2e/testFolder/*.cy.js",
     baseUrl: "https://way2automation.com/way2auto_jquery/",
     setupNodeEvents(on, config) {
