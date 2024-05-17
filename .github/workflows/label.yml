@@ -58,6 +58,3 @@ jobs:
             SKIP_SPEC: '${{ inputs.skip-spec }}'
             DEBUG: 'cypress-split'
             grepTags: config
-
-      - name: Display environment variables file
-        run: cat cypress/envVariables.json
