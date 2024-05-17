@@ -8,6 +8,5 @@ it('runs test A1',  { tags: ['config', 'some-other-tag'] }, () => {
   cy.writeFile('cypress/envVariables.json', envVariables);
 
 
-  cy.log(splitIndex);
     cy.wait(100)
 })
