@@ -4,12 +4,10 @@
 
 it('runs test A1',  { tags: ['config', 'some-other-tag'] }, () => {
   const envVariables = {
-    split: Cypress.env('split'),
-    splitIndex: Cypress.env('splitIndex'),
-    splitFile: Cypress.env('splitFile'),
-    skipSpec: Cypress.env('skipSpec'),
-    debug: Cypress.env('debug'),
-    grepTags: Cypress.env('grepTags')
+    split: Cypress.env('SPLIT'),
+    splitIndex: Cypress.env('SPLIT_INDEX'),
+    splitFile: Cypress.env('SPLIT_FILE'),
+
   };
 
   cy.writeFile('cypress/envVariables.json', envVariables);
