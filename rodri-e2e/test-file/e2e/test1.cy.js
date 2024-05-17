@@ -2,8 +2,8 @@
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
 
-it('runs test E1',  { tags: ['config', 'some-other-tag'] }, () => {
-  const splitIndex = Cypress.env('splitIndex');
+it('runs test A1',  { tags: ['config', 'some-other-tag'] }, () => {
+  const splitIndex = Cypress.env('SPLIT_INDEX');
 
   cy.log(splitIndex);
     cy.wait(100)
