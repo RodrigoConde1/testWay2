@@ -2,13 +2,7 @@
   "scripts": {
     "runFrontBack": "npx cypress run",
     "runFronte2e": "npx cypress run --spec 'cypress/e2e/feature/way2automation.feature'",
-    "runBack2e": "npx cypress run --spec 'cypress/e2e/feature/jsonplaceholder.feature'",
-    "generateReport": "node cucumber-html-report.js",
-    "combine:reports": "jrm cypress/results/combined-report.xml \"cypress/results/*.xml\"",
-    "postreport": "npm run combine:reports",
-    "report:merge": "mochawesome-merge cypress/results/*.json -o cypress/report.json",
-    "report:generate": "marge cypress/report.json --charts true",
-    "html-generator": " npx mochawesome-report-generator mochawesome.json"
+    "runBack2e": "npx cypress run --spec 'cypress/e2e/feature/jsonplaceholder.feature'"
   },
   "devDependencies": {
     "@cypress/grep": "^4.0.1",
