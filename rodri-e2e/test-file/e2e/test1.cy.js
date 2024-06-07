@@ -1,7 +1,7 @@
 // enables intelligent code completion for Cypress commands
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
-import  utilACtions from "../../support/commands/utilsactions"
+import  utilACtions from "../support/commands/utilsactions"
 
 const utilsAction = new utilACtions();
 let user
