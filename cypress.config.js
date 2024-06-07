@@ -1,16 +1,8 @@
 const { defineConfig } = require("cypress");
-const cucumber = require("cypress-cucumber-preprocessor").default;
 require("dotenv").config();
 const cypressSplit = require('cypress-split')
 
 module.exports = defineConfig({
-  reporter: 'mochawesome',
-  reporterOptions: {
-    reportDir: 'cypress/results',
-    overwrite: false,
-    html: false,
-    json: true,
-  },
   env: {
     splitIndex: process.env.SPLIT_INDEX,
   },
