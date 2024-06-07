@@ -26,5 +26,13 @@ class utilACtions {
     }
     return username
   }
+
+selectUser(){
+  let user
+  const splitIndex = Cypress.env('splitIndex');
+  user = `rodrigo+${splitIndex}`
+  return user
+  }
 }
+
 export default utilACtions

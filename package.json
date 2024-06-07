@@ -5,17 +5,20 @@
     "runBack2e": "npx cypress run --spec 'cypress/e2e/feature/jsonplaceholder.feature'",
     "generateReport": "node cucumber-html-report.js",
     "combine:reports": "jrm cypress/results/combined-report.xml \"cypress/results/*.xml\"",
-    "postreport": "npm run combine:reports"
+    "postreport": "npm run combine:reports",
+    "report:merge": "mochawesome-merge cypress/results/*.json -o cypress/report.json",
+    "report:generate": "marge cypress/report.json --charts true",
+    "html-generator": " npx mochawesome-report-generator mochawesome.json"
   },
   "devDependencies": {
     "@cypress/grep": "^4.0.1",
     "cypress": "^13.4.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
-    "cypress-mochawesome-reporter": "^3.7.0",
-    "cypress-multi-reporters": "^1.5.0",
     "cypress-split": "^1.23.0",
-    "mocha": "^9.2.2",
-    "multiple-cucumber-html-reporter": "^1.18.0"
+    "mocha": "^10.4.0",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
   },
   "cypress-cucumber-preprocessor": {
     "stepDefinitions": "cypress/e2e/steps",
@@ -27,7 +30,6 @@
     }
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "mochawesome": "^7.1.3"
+    "dotenv": "^16.0.3"
   }
 }

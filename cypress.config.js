@@ -4,6 +4,13 @@ require("dotenv").config();
 const cypressSplit = require('cypress-split')
 
 module.exports = defineConfig({
+  reporter: 'mochawesome',
+  reporterOptions: {
+    reportDir: 'cypress/results',
+    overwrite: false,
+    html: false,
+    json: true,
+  },
   env: {
     splitIndex: process.env.SPLIT_INDEX,
   },
@@ -20,7 +27,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       cypressSplit(on, config)
       require('@cypress/grep/src/plugin')(config);
-      on("file:preprocessor", cucumber());
       return config
     },
   }
