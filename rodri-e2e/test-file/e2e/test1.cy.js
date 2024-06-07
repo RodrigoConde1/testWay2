@@ -1,13 +1,14 @@
 // enables intelligent code completion for Cypress commands
 // https://on.cypress.io/intelligent-code-completion
 /// <reference types="cypress" />
+import  utilACtions from "../../support/commands/utilsactions"
 
-it('runs test A1',  { tags: ['config', 'some-other-tag'] }, () => {
-  const envVariables =   Cypress.env();
+const utilsAction = new utilACtions();
+let user
 
-  cy.writeFile('cypress/envVariables.json', envVariables);
-  const splitIndex = Cypress.env('splitIndex');
-  expect(splitIndex).to.be.eq('0')
-
+it('runs test E1',  { tags: ['smoke'] }, () => {
+  user = utilsAction.selectUser()
+  cy.log(user)
+  expect(user).to.be.eq('rodrigo+0')
     cy.wait(100)
 })
