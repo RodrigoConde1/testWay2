@@ -9,6 +9,6 @@ let user
 it('runs test E1',  { tags: ['smoke'] }, () => {
   user = utilsAction.selectUser()
   cy.log(user)
-  expect(user).to.be.eq('rodrigo+0')
+  expect(user).to.be.eq('security.test+0@visma.com')
     cy.wait(100)
 })
