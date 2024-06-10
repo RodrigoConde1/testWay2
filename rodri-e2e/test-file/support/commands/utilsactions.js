@@ -30,7 +30,7 @@ class utilACtions {
 selectUser(){
   let user
   const splitIndex = Cypress.env('splitIndex');
-  else user = `security.test${splitIndex === 0 ? '' : '+' + splitIndex}@visma.com`;
+  user = `security.test${splitIndex === 0 ? '' : '+' + splitIndex}@visma.com`;
   return user
   }
 }
